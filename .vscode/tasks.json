@@ -1,0 +1,18 @@
+{
+  "version": "0.0.1",
+  "tasks": [
+    {
+      "label": "Update libraries",
+      "type": "shell",
+      "command": "npm remove vscript vapi vutil && npm i ${input:targetIP}/vscript.tar.gz ${input:targetIP}/vapi.tar.gz"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "targetIP",
+      "type": "promptString",
+      "description": "address of your target machine (should be running a testing build, otherwise vutil will be unavailable)",
+      "default": "http://enter.your.ip.here"
+    }
+  ]
+}

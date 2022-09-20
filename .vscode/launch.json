@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Quickrun (no type checking)",
+      "program": "${file}",
+      "request": "launch",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node",
+      "env": {
+        "NODE_OPTIONS": "--loader ts-node/esm --no-warnings"
+      }
+    }
+  ]
+}

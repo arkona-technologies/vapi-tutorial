@@ -1,7 +1,7 @@
 import { AT1130 } from "vapi";
 import { Duration, enforce } from "vscript";
 
-export const VAPI_BLADE = "172.16.233.2";
+export const VAPI_BLADE = process.env["BLADE"]?? "";
 
 export const SDI_OUT_INDEX = 6;
 
