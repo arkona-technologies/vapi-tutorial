@@ -5,7 +5,7 @@ do
     echo -e "Please enter the IP-Address of your AT300/C100:\c"
     read BLADE
                echo "Check if Blade is reachable?"
-               if [[ $(echo $BLADE | grep -E '^(http|https)*$' | wc -l) -gt 0 ]]
+               if [[ $(echo $BLADE | grep -E '^(http|https)' | wc -l) -gt 0 ]]
                then 
                   echo "please omit prefixes such http(s) etc..."
                   continue;
@@ -26,6 +26,7 @@ do
                   echo "Compiling Scripts..."
                   tsc -p tsconfig.json
                   cp ./blade.json ./.build/
+                  echo "You can start the interactive webpage via ./runkiosk.sh or use the scripts under .build"
                   break;
             else
             echo "Blade doesn't seem to exist"
