@@ -1,9 +1,12 @@
 import { AT1130 } from "vapi";
-import * as fs from "fs";
 import { Duration, enforce } from "vscript";
+import * as fs from "fs";
 
-export const VAPI_BLADE: string = fs.readFileSync("./blade_ip").toString() ?? "";
-//export const VAPI_BLADE = process.env["BLADE"]?? "";
+export function GET_VAPI_BLADE(): string {
+   const f = fs.readFileSync("./blade.json", { encoding: "ascii" });
+   return JSON.parse(f).ip;
+}
+export const VAPI_BLADE = GET_VAPI_BLADE() ?? "";
 
 export const SDI_OUT_INDEX = 6;
 

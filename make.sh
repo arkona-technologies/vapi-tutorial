@@ -14,7 +14,7 @@ do
                then 
                   echo "Blade seems to exist. Starting setup"
                   export BLADE
-                  echo $BLADE >> ./blade_ip
+                  echo '{"ip" : "'$BLADE'"}'>./blade.json
                   BLADE_URL="http://${BLADE}"
                   echo $BLADE
                   echo $BLADE_URL
@@ -25,6 +25,7 @@ do
                   tsc -p tsconfig_kiosk.json
                   echo "Compiling Scripts..."
                   tsc -p tsconfig.json
+                  cp ./blade.json ./.build/
                   break;
             else
             echo "Blade doesn't seem to exist"
