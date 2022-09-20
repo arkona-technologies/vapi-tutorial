@@ -14,6 +14,7 @@ do
                then 
                   echo "Blade seems to exist. Starting setup"
                   export BLADE
+                  echo $BLADE >> ./blade_ip
                   BLADE_URL="http://${BLADE}"
                   echo $BLADE
                   echo $BLADE_URL
