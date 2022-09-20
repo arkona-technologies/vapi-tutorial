@@ -29,7 +29,7 @@ await calibration_freerun(vm);
 // set up two video signal generators, as well as one player holding an animated clip made by the Blender Foundation,
 // and one player holding a custom-made test sequence.
 const { vsg_colorbars, vsg_counters, blender_player, testseq_player } =
-  await load_demo_content(vm, false);
+  await load_demo_content(vm, true);
 
 // Each of these video sources will then be routed through a (1D) color correction instance.
 
