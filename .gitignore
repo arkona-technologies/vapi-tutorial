@@ -1,0 +1,6 @@
+.hg
+*.log
+.build
+.DS_Store
+package-lock.json
+node_modules

@@ -1,0 +1,22 @@
+{
+   "type": "module",
+   "scripts": {
+      "setup": "mkdir -p node_modules && npm r vapi vscript vutil && npm i $BLADE/vscript.tar.gz $BLADE/vapi.tar.gz $BLADE/vutil.tar.gz typescript @swc/core ts-node"
+   },
+   "devDependencies": {
+      "@swc/core": "^1.3.2",
+      "ts-node": "^10.9.1",
+      "typescript": "^4.8.3"
+   },
+   "dependencies": {
+      "@svgdotjs/svg.js": "^3.1.2",
+      "@types/node": "^18.7.14",
+      "@types/node-hid": "^1.3.1",
+      "jimp": "^0.16.1",
+      "node-global-key-listener": "^0.1.1",
+      "svgdom": "^0.1.10",
+      "vapi": "http://172.16.169.2/vapi.tar.gz",
+      "vscript": "http://172.16.169.2/vscript.tar.gz",
+      "vutil": "http://172.16.169.2/vutil.tar.gz"
+   }
+}

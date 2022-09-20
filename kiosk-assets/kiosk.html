@@ -1,0 +1,215 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>blade//runner API</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <script type="text/javascript" src="./kiosk_frontend.js"></script>
+        <style>
+         html {
+             height: 100%;
+             overflow-x: hidden;
+         }
+         @font-face {
+           font-display: block;
+           font-family: Nunito Sans;
+            src: local("Nunito Sans"), url(../../nunito-sans/NunitoSans-Regular.ttf) format("woff2");
+            font-style:italic
+        }
+        body {
+             background-size: 80px 80px;
+             background-image: linear-gradient(to right, #ffffff3b 1px, transparent 1px), linear-gradient(to bottom, #ffffff3b 1px, transparent 1px);
+             background-color: #0179B2;
+             text-align: center;
+             height: 100%;
+             margin: 0;
+             padding-top: 40pt;
+             color: white;
+             font-size: 14pt;
+             font-family: Nunito Sans;
+         }
+         
+         h1 {
+             font-weight: 200;
+             font-size: 60pt;
+         }
+         h2 {
+             font-weight: 200;
+             font-size: 60pt;
+         }
+         h2 {
+             padding-top: 0;
+             margin-top: 0;
+         }
+         .hflex {
+             align-items: center;
+             display: flex;
+             justify-content: center;
+             vertical-align: top;
+         }
+         .vstack {
+             margin-left: 8px;
+             margin-right: 8px;
+             align-items: center;
+             display: block;
+             justify-content: center;
+         }
+         .button {
+            height:7em;
+            width: calc(100% / 7);
+            text-align:center;
+             /* filter: grayscale(1); 
+             filter: saturate(0.5) brightness(0.9) sepia() hue-rotate(170deg);*/
+             color: rgba(255,255,255,0.2);
+         }
+         .button img {
+             max-width: 5em;
+             max-height: 5em;
+             object-fit: contain;
+         }
+         .button:hover {
+             cursor: pointer;
+             color: white;
+             /* text-shadow: 0 9px 18px rgba(255, 255, 255, 0.75); */
+         }
+         .button.active {
+             filter: grayscale(0.3);
+             color: yellow;
+             /* text-shadow: 0 9px 18px rgba(255, 255, 255, 0.5); */
+         }
+         hr {
+             padding: 0;
+             margin: 0;
+             margin-top: 20pt;
+             margin-bottom: 20pt;
+             border: 0;
+             border-top: 1px dotted white;
+             display: block;
+             height: 1px;
+         }
+         #carousel {
+             transition: transform 0.7s cubic-bezier(.75,-0.5,0,1.75);
+         }
+         .details {
+            outline: .5em solid white;
+            margin:2em 1em;
+            background: rgba(255, 255, 255, 0.05);
+         }
+         .bottom {
+             left: 0;
+             right: 0;
+             text-align: center;
+             position: fixed;
+             height: 30em;
+             bottom: 0;
+         }
+         a {
+             text-decoration: none;
+         }
+         .details img {
+             height: 40vh;
+             width: auto;
+             display: block;
+             margin-left: auto;
+             margin-right: auto;
+         }
+         .details .section {
+             text-align: justify;
+             min-width: 100vw;
+             max-width: 100vw;
+         }
+         /* .details h2 {
+            text-align: center;
+            } */
+         .details .padded {
+             padding-left: 2em;
+             padding-right: 2em;
+             padding-bottom: 1em;
+         }
+         .details p {
+            padding:.5em;
+         }
+         .hflex .button div:first-child{
+            content:" ";
+            margin:auto;
+            width:5em;
+            height:5em;
+            background-size:5em;
+            background-repeat: no-repeat;
+            
+         }
+         #home div:first-child{ background-image:url("help_1.png")}
+         #home:hover div:first-child{          background-image:url("./help.png")}
+         #section-0 div:first-child{ background-image:url("baby_1.png")}
+         #section-0:hover div:first-child{          background-image:url("./baby.png")}
+         #section-1 div:first-child{background-image:url("monitoring_1.png")}
+         #section-1:hover div:first-child{     background-image:url("./monitoring.png")}
+         #section-2 div:first-child{background-image:url("colorbars_1.png")}
+         #section-2:hover div:first-child{      background-image:url("./colorbars.png")}
+         #section-3 div:first-child{background-image:url("push_action_1.png")}
+         #section-3:hover div:first-child{    background-image:url("./push_action.png")}
+         #fresh div:first-child{background-image:url("create_workspace_1.png")}
+         #fresh:hover div:first-child{       background-image:url("./create_workspace.png")}
+         #wipe div:first-child{ background-image:url("wipe_workspace_1.png")}
+         #wipe:hover div:first-child{          background-image:url("./wipe_workspace.png")}
+        </style>
+        <!-- Place favicon.ico in the root directory -->
+    </head>
+    <body>
+        <div class="hflex">
+            <div class="button vstack" id="home" onclick="request_section(this)"><div></div><div>Help</div></div>
+            <div class="button vstack" id="section-0" onclick="request_section(this)"><div></div><div>First steps</div></div>
+            <div class="button vstack" id="section-1" onclick="request_section(this)"><div></div><div>Basic monitoring</div></div>
+            <div class="button vstack" id="section-2" onclick="request_section(this)"><div></div><div>Custom content</div></div>
+            <div class="button vstack" id="section-3" onclick="request_section(this)"><div></div><div>Basic control</div></div>
+            <div class="button vstack" id="fresh" onclick="request_workspace('fresh')"><div></div><div>Create workspace</div></div>
+            <div class="button vstack" id="wipe" onclick="request_workspace('wipe')"><div></div><div>Wipe workspace</div></div>
+        </div>
+        <div class="details">
+            <div class="hflex" id="carousel" style="transform: translate(200vw, 0);">
+                <div class="section">
+                    <div class="padded">
+                        <p>
+                            blade//runner can be monitored and controlled using either low-level access to its JSON/WebSocket interface, or using a JavaScript/TypeScript library called <i>vapi</i> that ships with blade//runner.
+                        </p>
+                        <p>
+                            This setup demonstrates how to use <i>vapi</i> to perform several simple tasks. To read, modify or execute one of the example scripts, please select it by clicking one of the section icons above. This should open the corresponding source file in VisualStudio Code.
+                            To immediately execute said file, either navigate to the <i>Run and Debug</i> section and press the play button, or hit F5. All textual output produced by the script should then become visible in the debug console.
+                        </p>
+                        <img src="vs-guide-plain.svg" />
+                    </div>
+                </div>
+                <div class="section">
+                  <div class="padded">
+                    <h2>First steps</h2>
+                    This example script demonstrates how to connect to blades using the vapi library, how to interactively explore the API using editor-provided autocompletion, and how to read and modify the blade's state.
+                  </div>
+                </div>
+                <div class="section">
+                  <div class="padded">
+                    <h2>Basic monitoring</h2>
+                    This script demonstrates how to quickly monitor and analyze blade state using vapi and external monitoring/analysis tools such as kst (for a free and fully featured telemetry solution, check out <a href="https://hub.docker.com/r/arkonatechnologies/vtelemetry">vtelemetry</a>).
+                  </div>
+                </div>
+                <div class="section">
+                  <div class="padded">
+                    <h2>Custom content</h2>
+                    In this section, we will generate the world's ugliest test sequence by creating a set of SVG files, rendering them with Inkscape, and uploading them to the demonstration blade, all from the convenience of your editor!
+                  </div>
+                </div>
+                <div class="section">
+                  <div class="padded">
+                    <h2>Basic control</h2>
+                    During this last example, a custom keypress handler will be set up to interactively choose between 4 different video sources, and modify their hue and saturation in realtime.
+                  </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="cur-workspace"></div>
+    </body>
+</html>

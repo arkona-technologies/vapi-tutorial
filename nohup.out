@@ -1,0 +1,148 @@
+./runkiosk.sh: line 3: node: command not found
+/baby.png
+/baby.svg
+/baby_1.png
+/baby_1.svg
+/babysteps.svg
+/backdrop.png
+/colorbars.png
+/colorbars.svg
+/colorbars_1.png
+/colorbars_1.svg
+/control.png
+/create_workspace.png
+/create_workspace.svg
+/create_workspace_1.png
+/create_workspace_1.svg
+/help.png
+/help_1.png
+/kiosk.html
+/kiosk_frontend.js
+/kiosk_frontend.js.map
+/monitoring.png
+/monitoring.svg
+/monitoring_1.png
+/monitoring_1.svg
+/placeholder.svg
+/push_action.png
+/push_action.svg
+/push_action_1.png
+/push_action_1.svg
+/testseq.png
+/tsconfig_kiosk.tsbuildinfo
+Encountered unsupported extension tsbuildinfo
+/vs-guide-plain.svg
+/vs-guide.svg
+/wipe_workspace.png
+/wipe_workspace.svg
+/wipe_workspace_1.png
+/wipe_workspace_1.svg
+[ [ 'vapi_workspace_0', 1662645394000 ] ]
+cur_workspace: vapi_workspace_0
+Server is running
+GET
+/kiosk.html
+found entry:
+GET
+/kiosk_frontend.js
+found entry:
+GET
+/vs-guide-plain.svg
+found entry:
+GET
+/get-workspace
+relative_url: /get-workspace
+cur_workspace: vapi_workspace_0
+response: {
+  "workspace": "/tmp/user-workspaces/vapi_workspace_0"
+}
+GET
+/help_1.png
+found entry:
+GET
+/nunito-sans/NunitoSans-Regular.ttf
+relative_url: /nunito-sans/NunitoSans-Regular.ttf
+cur_workspace: vapi_workspace_0
+response: {
+  "workspace": "/tmp/user-workspaces/vapi_workspace_0"
+}
+GET
+/create_workspace_1.png
+found entry:
+GET
+/baby_1.png
+found entry:
+GET
+/monitoring_1.png
+found entry:
+GET
+/colorbars_1.png
+found entry:
+GET
+/push_action_1.png
+found entry:
+GET
+/wipe_workspace_1.png
+found entry:
+GET
+/get-workspace
+relative_url: /get-workspace
+cur_workspace: vapi_workspace_0
+response: {
+  "workspace": "/tmp/user-workspaces/vapi_workspace_0"
+}
+GET
+/favicon.ico
+relative_url: /favicon.ico
+cur_workspace: vapi_workspace_0
+response: {
+  "workspace": "/tmp/user-workspaces/vapi_workspace_0"
+}
+GET
+/colorbars.png
+found entry:
+GET
+/create_workspace.png
+found entry:
+GET
+/wipe_workspace.png
+found entry:
+GET
+/wipe-workspace
+relative_url: /wipe-workspace
+wipe_workspace
+Error while trying to wipe workspace: Error: EACCES: permission denied, rmdir '/tmp/user-workspaces/vapi_workspace_0'
+cur_workspace: null
+response: {
+  "workspace": null
+}
+GET
+/monitoring.png
+found entry:
+GET
+/baby.png
+found entry:
+GET
+/help.png
+found entry:
+GET
+/section-0
+relative_url: /section-0
+create_fresh_workspace
+Error: EACCES: permission denied, rmdir '/tmp/user-workspaces/vapi_workspace_0'
+    at rmdirSync (node:fs:1225:10)
+    at _rmdirSync (node:internal/fs/rimraf:235:5)
+    at rimrafSync (node:internal/fs/rimraf:193:7)
+    at Module.rmSync (node:fs:1274:10)
+    at create_fresh_workspace (file:///Users/arkona/Public/ibc2022/vapi/kiosk.ts:93:34)
+    at show_file (file:///Users/arkona/Public/ibc2022/vapi/kiosk.ts:121:15)
+    at dispatch_request (file:///Users/arkona/Public/ibc2022/vapi/kiosk.ts:142:15)
+    at Server.<anonymous> (file:///Users/arkona/Public/ibc2022/vapi/kiosk.ts:214:5)
+    at Server.emit (node:events:513:28)
+    at Server.emit (node:domain:489:12) {
+  errno: -13,
+  syscall: 'rmdir',
+  code: 'EACCES',
+  path: '/tmp/user-workspaces/vapi_workspace_0'
+}
+./runkiosk.sh: line 3:  6845 Hangup: 1               NODE_OPTIONS='--loader ts-node/esm --no-warnings' node kiosk.ts
