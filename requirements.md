@@ -23,4 +23,6 @@ Some Examples render .jpg images that are downloaded from the blade. This uses [
 ### Ubuntu
 If you are running Ubuntu/Debian or any other derivative using apt as it's default package manager. you may run:
 
+```
 apt install npm kst imagemick inkscape 
+```
