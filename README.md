@@ -13,3 +13,9 @@ Apart from that you will need node.js and npm, visit https://nodejs.org/en/ for 
 
 ## Additional Requirements
 Some scripts require some more specialized software for displaying or converting graphics, see [*Requirements.md*](requirements.md) for more information.
+
+
+## Usage
+By running `make.sh` you will be asked to provide the ip-address of your development blade from which vscript/vapi and vutil will be downloaded via npm. Additionaly it will make sure that the example scripts will be executed on your development blade via the *ip* parameter in `blade.json`.
+
+Afterwards you can start the interactive tutorial by running `runkiosk.sh` and visiting http://localhost:4000.
