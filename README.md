@@ -1,4 +1,4 @@
-![BLADE//runner](.assets/br_logo.png)
+![BLADE//runner](.assets/blade_runner.svg)
 
 # BLADE//runner API Tutorial
 This repository hosts a bunch of guided example scripts to serve as a tutorial to *BLADE//runner's* native JSON/WebSockets API and it's bundled javascript/typescript layer **vapi**.
